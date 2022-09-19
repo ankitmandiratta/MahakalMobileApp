@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image,ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,Image,ScrollView, TouchableOpacity,FlatList } from 'react-native'
 import React, { useState } from 'react'
 import dummyData from '../constants/dummyData'
 import { COLORS,SIZES } from '../constants'
@@ -9,8 +9,8 @@ const MobileParticulars = () => {
 const  [id,setId]=useState('')
  const [company,setCompany]= useState('Samsung')
  const [model,setModal ]=useState("Galaxy M32")
- const [phoneColor,setPhoneColor] = useState("white")
- const [sim,setSim]= useState([1, 2, 3])
+ const [phoneColor,setPhoneColor] = useState("White")
+ const [sim,setSim]= useState("Dual" )
  const [network,setNetwork] =useState("4G")
  const [screenSize,setScreenSize]= useState("78*78")
  const [platform,setPlatform] = useState("Android 11")
@@ -26,7 +26,17 @@ const  [id,setId]=useState('')
 // const [backImage,setBackImage]= require("../assets/dummyData/samsung2.png")
 // const [rightSideImage,setRightSideImage]= require("../assets/dummyData/samsung3.png")
 // const [leftSideImage,setLeftSideImage]= require("../assets/dummyData/samsung4.png")
-
+const DATA =[{id:"SIM",title:sim},
+            {id:"Network",title:network},
+            {id:"Screen Size",title:screenSize},
+            {id:"Platform",title:platform},
+            {id:"Front Camera",title:frontCamera},
+            {id:"Main Camera",title:mainCamera},
+            {id:"RAM",title:ram},
+            {id:"Memory",title:memoryInternal},
+            {id:"Battery",title:battery}        
+        
+        ]
     return (
     <View>
 
@@ -50,14 +60,19 @@ const  [id,setId]=useState('')
         {/* breakthrough line */}
         <View style={{backgroundColor:COLORS.darkGray,height:1,marginTop:30,marginHorizontal:20}} />
         <View style={{paddingLeft:30,marginTop:20,marginLeft:SIZES.base}}>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'bold',fontSize:20}}>SIM:{sim}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>Network:{network}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>Screen Size:{screenSize}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>platform:{platform}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>Front Camera:{frontCamera}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>Main Camera:{mainCamera}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>Memory:{memoryInternal}</Text>
-        <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>Battery{battery}</Text> 
+            <FlatList
+            data={DATA}
+            horizontal={false}
+            renderItem={({item})=>{
+                return( 
+                <View style={{flexDirection:'row'}}>
+                <Text style={{color:COLORS.red,...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>{item.id}: </Text>
+                <Text style={{color:COLORS.red,...FONTS.h3,color:COLORS.black,fontWeight:'500',fontSize:18}}>{item.title}</Text>
+              </View>
+                )
+            }}
+            />
+       
 <View style={{flexDirection:'row',alignItems:'baseline',backgroundColor:COLORS.yellow,borderRadius:SIZES.radius,width:SIZES.width*.40,padding:10}}>
     <Text>Rs :- </Text>
 <TouchableOpacity><Text style={{fontStyle:'italic',textDecorationLine:'line-through'}}> {amount1 }</Text></TouchableOpacity>
