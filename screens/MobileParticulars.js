@@ -40,12 +40,12 @@ const DATA =[{id:"SIM",title:sim},
     return (
     <View>
 
-        <View style={{marginTop:SIZES.height*0.05,justifyContent:'center',alignContent:'center',alignItems:'center'}}>
-        <Text>Mobile</Text>
+        <View style={{marginTop:SIZES.height*0.01,justifyContent:'center',alignContent:'center',alignItems:'center'}}>
+        <Text>Put the three option in a row</Text>
         </View>
 <ScrollView  >
-        <View style={{flex:1,marginTop:30,width:SIZES.width,height:SIZES.height*.30,justifyContent:'center',alignContent:'center',alignItems:'center'}}>
-        <Image source={dummyData.Phone1.front_image} style={{marginBottom:10}} resizeMode='center'  />
+        <View style={{marginTop:30,width:SIZES.width,height:SIZES.height*.30,justifyContent:'center',alignContent:'center',alignItems:'center'}}>
+        <Image source={dummyData.Phone1.front_image} style={{marginBottom:10,height:"120%"}} resizeMode={"contain"}   />
         {/* <Text style={{color:COLORS.red}}> {company} {model} {ram} {memoryInternal}</Text> */}
         </View>
         
@@ -54,7 +54,7 @@ const DATA =[{id:"SIM",title:sim},
             </View>
          */}
 
-        <View style={{marginLeft:25}}>
+        <View style={{marginLeft:25,marginTop:30}}>
         <Text style={{...FONTS.h3,color:COLORS.black,fontWeight:'bold',fontSize:20}}>{company}{","}{model}{","}{phoneColor}{","}{ram}{","}{memoryInternal}{ }</Text>
         </View>
         {/* breakthrough line */}

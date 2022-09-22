@@ -1,4 +1,10 @@
 const categories = [
+    
+    {
+        id: 0,
+        name: "All",
+       // icon: icons.burger
+    },
     {
         id: 1,
         name: "Iphone",
@@ -27,6 +33,163 @@ const categories = [
 		
 ]
 
+const phones=[
+    {
+        id: 1,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        sold:false,
+        network: "4G",
+        screen_size: "78*78",
+       platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    },
+    {
+        id: 2,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        sold:false,
+        network: "4G",
+        screen_size: "78*78",  
+        platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    },
+    {
+        id: 3,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        sold:true,
+        network: "4G",
+        screen_size: "78*78",  
+        platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    },
+    {
+        id: 4,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        sold:false,
+        network: "4G",
+        screen_size: "78*78",  
+        platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    },
+    {
+        id: 5,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        sold:false,
+        network: "4G",
+        screen_size: "78*78",  
+        platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    },
+    {
+        id: 6,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        sold:false,
+        network: "4G",
+        screen_size: "78*78",  
+        platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    },
+    {
+        id: 7,
+        company: "Samsung",
+        model: "Galaxy M32",
+        sim: [1, 2, 3],
+        network: "4G",
+        screen_size: "78*78",  
+        platform:"Android 11",
+        selfie_camera:1,
+        main_camera:32,
+        ram:16,
+        memory_internal:32,
+        memoryexternal:null,
+        battery:4000,
+        amount1:8000, 
+        amount2:6290,
+        front_image: require("../assets/dummyData/samsung1.png"),
+        back_image: require("../assets/dummyData/samsung2.png"),
+        rightSide_image: require("../assets/dummyData/samsung3.png"),
+        leftSide_image: require("../assets/dummyData/samsung4.png")
+    }
+
+]
+
 const Phone1 = {
     id: 1,
     company: "Samsung",
@@ -34,7 +197,6 @@ const Phone1 = {
     sim: [1, 2, 3],
     network: "4G",
     screen_size: "78*78",
-    
     platform:"Android 11",
     selfie_camera:1,
     main_camera:32,
@@ -95,4 +257,4 @@ const Phone3 = {
     leftSide_image: require("../assets/dummyData/samsung4.png")
 }
 
-export default {categories,Phone1,Phone2,Phone3}
+export default {categories,Phone1,Phone2,Phone3,phones}
