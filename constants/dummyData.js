@@ -7,7 +7,7 @@ const categories = [
     },
     {
         id: 1,
-        name: "Iphone",
+        name: "iPhone",
        // icon: icons.burger
     },
     {

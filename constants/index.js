@@ -1,4 +1,4 @@
-import theme,{ COLORS,SIZES } from "./theme";
+import theme,{ COLORS,SIZES,FONTS } from "./theme";
 
 
-export {COLORS,SIZES}
+export {COLORS,SIZES,FONTS}

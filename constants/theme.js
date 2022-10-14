@@ -62,4 +62,5 @@ export const FONTS = {
 
 const appTheme = { COLORS, SIZES, FONTS };
 
+//export {COLORS}
 export default appTheme;

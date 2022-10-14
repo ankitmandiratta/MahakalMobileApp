@@ -1,4 +1,5 @@
 package com.mahakalmobileapp;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -37,6 +38,7 @@ public class MainActivity extends ReactActivity {
       reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
       return reactRootView;
     }
+
 
     @Override
     protected boolean isConcurrentRootEnabled() {
