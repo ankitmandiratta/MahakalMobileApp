@@ -16,8 +16,34 @@ const Styles = StyleSheet.create({
   ,
     header_text:{
         fontWeight:'bold',fontSize:SIZES.bigFont,color:COLORS.black
-    }
-    ,
+    },
+    header_leftComponent_view:{
+        height:60,
+        width:40,
+        justifyContent:'center'
+    },
+    header_leftComponent_image:{
+        height:'100%',
+        width:'100%'
+    },
+    home_to:{
+        marginRight:SIZES.radius,
+        borderRadius:10,
+        marginVertical:10,
+        backgroundColor:COLORS.lightGray1,
+        flex:1
+
+    },
+    home_image1:{
+        alignSelf:'center',
+        height:"100%",
+        width:"90%"
+    },
+    home_flatList1:{
+        marginVertical:10,
+        height:SIZES.height*.06,
+        marginHorizontal:10
+    },
     loginTO:{
         alignSelf:'flex-end',
         color:COLORS.black,
@@ -38,7 +64,11 @@ const Styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize:20
 
-    }
+    },
+    ProductStyleText:{
+        color:COLORS.black,
+        fontSize:SIZES.body4    
+      }
 })
 
 export default Styles

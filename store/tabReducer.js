@@ -1,7 +1,7 @@
 import { SET_SELECTED_TAB } from "./tabActions"
 //we are changing this value so everywher the value of this will work
 const initialState={
-selectedTab :"Home"
+selectedTab :"All"
 
 }
 
