@@ -1,7 +1,8 @@
-import React,{useContext} from "react";
+import React,{useContext,useState} from "react";
 import { View,Text, Touchable, TouchableOpacity,Image } from "react-native";
 import {createDrawerNavigator,DrawerContentScrollView} from '@react-navigation/drawer'
 import { COLORS,SIZES,FONTS } from "../constants";
+import Animated from 'react-native-reanimated'
 import Icon from 'react-native-vector-icons/AntDesign'
 import {icons} from '../constants' 
 import { LoginContext } from "../context/LoginContext";
@@ -45,6 +46,25 @@ const CustomDrawerContent=({navigation})=>{
 const DraweNav =(props)=>{
 
 
+   const [progress,setProgress] = useState(new Animated.Value(0))  
+
+   const scale = Animated.interpolateNode(progress,{
+                inputRange:[0,1],
+                outputRange:[1,0.8]
+})
+
+const borderRadius = Animated.interpolateNode(progress,{
+    inputRange:[0,1],
+    outputRange:[0,26]
+})
+
+const animatedStyle = {borderRadius,transform:[{scale}]}
+
+
+
+
+//   const animatedStyle={borderRadius,transform:[{scale}]}
+
 
 
 return(
@@ -54,12 +74,21 @@ headerShown:false,
 drawerStyle:{backgroundColor:COLORS.black}
 }}
 drawerContent={props=>{
+  
+  setTimeout(()=>{
+    setProgress(props.setProgress)
+  },0)
+
+    
+    
     return(
         <CustomDrawerContent  navigation={props.navigation}/>
     )}
 }
 initialRouteName="Home">
-<Drawer.Screen name="Home">{props=><Home {...props}/>}
+<Drawer.Screen name="Home">{props=><Home {...props}
+drawerAnimationStyle={animatedStyle}
+/>}
 </Drawer.Screen> 
 </Drawer.Navigator>
 )}

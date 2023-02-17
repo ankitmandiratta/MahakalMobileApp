@@ -43,7 +43,7 @@ const Styles = StyleSheet.create({
     },
     home_flatList1:{
         marginVertical:10,
-        height:SIZES.height*.06,
+        height:SIZES.height*.07,
         marginHorizontal:10
     },
     loginTO:{

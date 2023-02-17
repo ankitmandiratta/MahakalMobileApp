@@ -4,19 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import MobileParticulars from './MobileParticulars'
 import dummyData from '../constants/dummyData';
 import { COLORS, SIZES,FONTS } from '../constants';
-import { connect} from 'react-redux';
 import Header from '../component/Header';
-import { Alert } from 'react-native';
-import { SET_SELECTED_TAB } from '../store/tabActions';
-import selectedTab from '../store/tabActions';
 import firestore from '@react-native-firebase/firestore';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Styles from '../styles/Styles';
 import { Loader} from '../component';
-
+import LinearGradient from 'react-native-linear-gradient'
 import {logo, one,logoo}  from '../constants/images'
 import { LoginContext } from '../context/LoginContext';
-//import { storage } from '../firebase/firebase';
 import storage from '@react-native-firebase/storage'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import ImageDisplay from './ImageDisplay';
@@ -28,7 +23,7 @@ const Home = (props) => {
     const DATA =dummyData.categories
     const [phones,setPhones] =useState()
     const [images,setImages] =useState()
-
+    const [selectedMenuType,setSelectedMenuType] = useState(0)
     const navigation = props.navigation
     const [url,setUrl]= useState()
     const [url1,setUrl1] =useState()
@@ -73,33 +68,26 @@ const Home = (props) => {
 image.push(urli)
           return urli    
            }) 
-
-
-     }
+ }
     
-      const listHeader=()=>{
-        return(
-          <View >
-        <FlatList 
-        style={Styles.home_flatList1}
-        horizontal
-       showsHorizontalScrollIndicator={false}
-        data={DATA}
-        renderItem={({item})=>{      
-        return(
-          <TouchableOpacity  onPress={()=>props.SET_SELECTED_TAB(item.name)} >
-          <Text  style={{...Styles.jai,padding:SIZES.radius,color:(props.selectedTab==item.name)?COLORS.white:COLORS.black,fontSize:SIZES.bigFont,backgroundColor:(props.selectedTab==item.name)?COLORS.black:null,borderRadius:10,marginHorizontal:1,padding:10}}>
-          {item.name}
-            </Text>
-            </TouchableOpacity>
-        )
-      }}
-      />
-          </View>
-        )}
-      //list header ends
-
-
+const renderMenuType =()=>{
+  return(
+    <View>
+<FlatList 
+horizontal
+showsHorizontalScrollIndicator={false}
+style={{height:SIZES.height*0.07,marginTop:15}}
+data={dummyData.categories}
+renderItem={({item,index})=>{
+  return(
+    <TouchableOpacity onPress={()=>setSelectedMenuType(index)}>
+      <Text style={{color:selectedMenuType==index ?COLORS.black:COLORS.darkGray2,padding:5,fontWeight:'bold',fontSize:20,marginLeft:index==0?2:7}}>{item.name}</Text>
+    </TouchableOpacity>
+  )
+}}
+/>
+</View>
+  )}
 
   //display mobiles starts
   const displayMobiles=()=>{
@@ -108,10 +96,10 @@ return(
 <FlatList 
 data={phones}
 horizontal ={false}
+ListHeaderComponent={ renderMenuType()}
 numColumns={2}
 renderItem={({item,index})=>{
 const mid=item[0].mobileId
-
 return(
   <View>
 <TouchableOpacity onPress={()=>{navigation.navigate('MobileDetails',{mid:mid})}}
@@ -140,8 +128,6 @@ style={{marginLeft:(index%2==0)?16:SIZES.base,marginRight:(index%2==0)?SIZES.bas
 )}
 }
 />
-
-
 </View>
 )}
 
@@ -162,25 +148,33 @@ leftComponent={
     </View>
 } />
 
-{listHeader()}
- {displayMobiles()}
 
+{displayMobiles()}
+{/* <View style={{height:30}}>
+<LinearGradient
+start ={{x:0,y:0}}
+end={{x:0,y:4}}
+colors={['white','white']}
+style={{height:30,width:SIZES.width}}>
+<Text>ABCD</Text>
+</LinearGradient>
+</View> */}
 
 
   </View>
 )}
 
+export default Home
 
+// const mapStateToProps =(state)=>{
+// return {
+//   selectedTab : state.selectedTab
+// }
+// }
+// const mapDispatchToProps=(dispatch)=>{
+//   return{
+//     SET_SELECTED_TAB:(selectTab)=>dispatch(selectedTab(selectTab))
+//   }}
 
-const mapStateToProps =(state)=>{
-return {
-  selectedTab : state.selectedTab
-}
-}
-const mapDispatchToProps=(dispatch)=>{
-  return{
-    SET_SELECTED_TAB:(selectTab)=>dispatch(selectedTab(selectTab))
-  }}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Home)
+//export default connect(mapStateToProps,mapDispatchToProps)(Home)
 
