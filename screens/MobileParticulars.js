@@ -1,20 +1,17 @@
-import { StyleSheet,Text, StatusBar,View,Image,ScrollView, ActivityIndicator,TouchableOpacity,FlatList, ImageBase } from 'react-native'
+import { Text, StatusBar,View,Image,ScrollView, ActivityIndicator,TouchableOpacity,FlatList, ImageBase } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { COLORS,SIZES,FONTS } from '../constants'
 import firestore from '@react-native-firebase/firestore';
 import {connect} from 'react-redux'
 import Styles from '../styles/Styles'
+import  {one } from '../constants/images';
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import AntDesign from 'react-native-vector-icons/AntDesign'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Entypo from 'react-native-vector-icons/Entypo'
 import storage from '@react-native-firebase/storage'
-import AnimatedLoader from "react-native-animated-loader";
-import call from 'react-native-phone-call'
 import { ProDesc,Loader,Header } from '../component';
 
 const MobileParticulars = ({route,navigation}) => {
 
+  const [imgss,setImgss] = useState([one,one,one,one])
   const {mid} =route.params
   const [data,setData]=useState()
   const  [mobileId,setMobileId]=useState('')
@@ -119,10 +116,13 @@ onScroll={e=>{setSelectedIndex((e.nativeEvent.contentOffset.x/SIZES.width).toFix
 showsHorizontalScrollIndicator={false}
 renderItem={({item})=>{
 return(
-     	    <View>
+     	  <View>
     		<View style={Styles.mp_style2}>
-        < Image source={{uri:item}}  style={{width:'100%',height:'100%'}} resizeMode='contain' />
-        <View style={Styles.mp_style9}>
+        {/* < Image source={{uri:item}}  style={{width:'100%',height:'100%'}} resizeMode='contain' /> */}
+    <View style={{height:200}}>
+         <Image source={one}  style={{width:'100%',height:'100%'}} resizeMode='contain' />
+      </View>  
+        <View style={{...Styles.mp_style9,marginTop:SIZES.radius}}>
         {imgs.map((item,index)=>{
       return(
       <View style={{height:100}}>
@@ -132,9 +132,13 @@ return(
       })}
   </View>
          </View> 
+
            </View>
   
 )}
+}
+ListFooterComponent={
+  <View style={{height:80}}/>
 }
 />
 
@@ -201,7 +205,7 @@ return(
 
     return(
            load?<Loader />:
-           <View>
+           <View style={{backgroundColor:COLORS.white}}>
        
            <StatusBar hidden={true} />
            <Header           
@@ -216,9 +220,11 @@ return(
        {  amount1 != '' ? dataReturn():noDataReturn()}
        </View>
  )}
-const mapStateToProps = state =>{
-   return{
-       selectedTab:state.selectedTab
-   }
-}
-export default connect (mapStateToProps)(MobileParticulars)
+
+ export default MobileParticulars
+// const mapStateToProps = state =>{
+//    return{
+//        selectedTab:state.selectedTab
+//    }
+// }
+// export default connect (mapStateToProps)(MobileParticulars)

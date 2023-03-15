@@ -4,6 +4,7 @@ import { COLORS } from '../constants';
 
   const Loader = () => {
     return (
+
       <AnimatedLoader
         visible={true}
         overlayColor={'#ffff'}

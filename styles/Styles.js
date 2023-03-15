@@ -23,13 +23,13 @@ const Styles = StyleSheet.create({
         justifyContent:'center'
     },
     header_leftComponent_image:{
-        height:'100%',
-        width:'100%'
+        height:20,
+        width:20,
+
     },
     home_to:{
-        marginRight:SIZES.radius,
+        
         borderRadius:10,
-        marginVertical:10,
         backgroundColor:COLORS.lighttGray,
         flex:1,
         borderWidth:1,
@@ -69,17 +69,20 @@ const Styles = StyleSheet.create({
     },
     ProductStyleText:{
         color:COLORS.black,
-        fontSize:SIZES.body4    
+        fontSize:SIZES.body4,
+            
       },
       mp_style1:{
         marginTop:30,
         width:SIZES.width,
         height:SIZES.height*.30,
+        backgroundColor:COLORS.white
         
       },
       mp_style2:{
         height:300,
-        width:SIZES.width
+        width:SIZES.width,
+        
       },
       mp_style3:{
         paddingLeft:20,

@@ -4,6 +4,7 @@ import Styles from '../styles/Styles'
 import { COLORS,SIZES,FONTS } from '../constants' 
 import call from 'react-native-phone-call'
 import Icon from 'react-native-vector-icons/Ionicons';
+import { logoo } from '../constants/images'
 import {a} from '../constants/images'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 const Header = ({leftComponent}) => {
@@ -26,7 +27,11 @@ const Header = ({leftComponent}) => {
 <View style={[Styles.header_View,Styles.jai]}>
 {leftComponent}
 <View style={{flex:1,...Styles.jai}}>
-<Text style={Styles.header_text}> Mahakal Mobile</Text>
+  <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+  <Image source={logoo} resizeMode="contain"  style={Styles.header_leftComponent_image}/>
+  <Text style={Styles.header_text}> Mahakal Mobile</Text>
+  </View>
+
 <Text style={Styles.header_text}> Nasirabad Road,Ajmer</Text>
 </View>
 {/* Right Component */}

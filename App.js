@@ -136,8 +136,7 @@ return (
 <>
 <NavigationContainer>
    <Stack.Navigator screenOptions={{headerShown:false}}>
-   
-    <Stack.Screen name="Login" component={Login} />
+       <Stack.Screen name="Login" component={Login} />
      <Stack.Screen name="RegisterUser" component={RegisterUser} />
      
      </Stack.Navigator>
@@ -146,7 +145,4 @@ return (
  </LoginContext.Provider>
  </Provider>
 )}
-
-
-  
 export default App
