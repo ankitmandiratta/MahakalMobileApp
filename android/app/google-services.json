@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:913206865285:android:f40a10c65d29f2476428ec",
+        "mobilesdk_app_id": "1:913206865285:android:f8a4b235c17c64166428ec",
         "android_client_info": {
-          "package_name": "com.mahakalmobileapp"
+          "package_name": "com.mahakalcontol"
         }
       },
       "oauth_client": [
         {
-          "client_id": "913206865285-i601l1bifja7qkaullqrvetkucle8b80.apps.googleusercontent.com",
+          "client_id": "913206865285-5b34lkid3ncmiineebskbbkcucdiosf3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +27,36 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "913206865285-i601l1bifja7qkaullqrvetkucle8b80.apps.googleusercontent.com",
+              "client_id": "913206865285-5b34lkid3ncmiineebskbbkcucdiosf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913206865285:android:f40a10c65d29f2476428ec",
+        "android_client_info": {
+          "package_name": "com.mahakalmobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913206865285-5b34lkid3ncmiineebskbbkcucdiosf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL1Gj_CvKRluKXDKnEXUuBEcjxjRFDS6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913206865285-5b34lkid3ncmiineebskbbkcucdiosf3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

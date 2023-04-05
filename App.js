@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,FlatList,Image } from 'react-native'
+import { StyleSheet, Text, View,FlatList,Image,useColorScheme } from 'react-native'
 import React,{useState,useReducer,useContext,useEffect,useMemo} from 'react'
 import MobileParticulars from './screens/MobileParticulars'
 import dummyData from './constants/dummyData'
@@ -22,11 +22,12 @@ const App = () => {
     userToken:''
   }
 
+  const style= useColorScheme ==='dark'?console.log('black'):console.log('white')
+
   useEffect(()=>{
     setTimeout(async()=>{
       //setIsLoading(false)
       let userToken = null
-      console.log('here sis error')
       try {
       userToken= await AsyncStorage.getItem('userToken')
       } catch (e) {
@@ -96,14 +97,15 @@ const authContext =useMemo(()=>({
        } 
        catch (e) {
         alert(e)
-        console.log(e)
+ 
        }
         dispatch({type:'Logout'})
      // setUserToken(null),
      // setIsLoading(false)
    },
    signUp:async(email)=>{
-       let userToken=email
+      
+    let userToken=email
          try {
         await AsyncStorage.setItem('userToken', userToken)
       }

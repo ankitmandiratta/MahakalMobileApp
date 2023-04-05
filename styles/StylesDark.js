@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS,FONTS,SIZES } from "../constants";
 
-const Styles = StyleSheet.create({
+const StylesDark = StyleSheet.create({
     jai:{
         justifyContent:'center',
         alignContent:'center', 
@@ -30,10 +30,10 @@ const Styles = StyleSheet.create({
     home_to:{
         
         borderRadius:10,
-        backgroundColor:COLORS.white,
+        backgroundColor:COLORS.lighttGray,
         flex:1,
         borderWidth:1,
-        borderColor:COLORS.darkGray2
+        borderColor:COLORS.lightGray1
 
     },
     home_image1:{
@@ -46,14 +46,20 @@ const Styles = StyleSheet.create({
         height:SIZES.height*.07,
         marginHorizontal:10
     },
+
+
     loginTO:{
         alignSelf:'flex-end',
-        color:COLORS.red,
+        color:COLORS.black,
         fontSize:20,
         marginTop:10,
         fontWeight:'bold'
 
     },
+loginPlaceholder:{
+  color:COLORS.white,
+}
+    ,
     horizonatalLine:{
         backgroundColor:COLORS.gray,
         height:1,
@@ -82,7 +88,7 @@ const Styles = StyleSheet.create({
       mp_style2:{
         height:300,
         width:SIZES.width,
-        backgroundColor:COLORS.white
+        
       },
       mp_style3:{
         paddingLeft:20,
@@ -135,6 +141,9 @@ const Styles = StyleSheet.create({
       }
 
 
+
+
+
 })
 
-export default Styles
+export default StylesDark

@@ -103,7 +103,7 @@ const MobileParticulars = ({route,navigation}) => {
 
     const dataReturn=()=>{
       return(
-             <ScrollView >
+             <ScrollView>
 
 {/* Image display starts */}
 
