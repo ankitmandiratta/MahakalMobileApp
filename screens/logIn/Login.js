@@ -1,24 +1,23 @@
-import { Button, StyleSheet, Text, TouchableOpacity, View,Image,useColorScheme } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View,Image,useColorScheme } from 'react-native'
 import React,{useState,useContext,useEffect} from 'react'
 import Formi from '../../component/Formi'
 import { COLORS, SIZES,icons } from '../../constants'
 import auth from '@react-native-firebase/auth';
-import RegisterUser from './RegisterUser';
 import Styles from '../../styles/Styles';
+import LoginMobile from './LoginMobile';
 import StylesDark from '../../styles/StylesDark';
 import { LoginContext } from '../../context/LoginContext';
 import {GoogleSignin,statusCodes} from '@react-native-google-signin/google-signin'
-
-
+import Advertisementt from '../../Advertisementt';
+import { logooo } from '../../constants/images';
 
 const Login = ({navigation}) => {
 
-
   const Sty= useColorScheme==='light'?Styles:StylesDark
   const {signIn,signUp} = useContext(LoginContext)
-
   const [email,setEmail] = useState('')
-   const [password,setPassword] = useState('')
+  const [mobile,setMobile] = useState('')
+  const [password,setPassword] = useState('')
 
 
    useEffect(()=>{
@@ -64,7 +63,7 @@ const authGoogleUser=(emaill,passwordd)=>{
     auth().signInWithEmailAndPassword(emaill, passwordd)
   .then((userCredential) => {
     var user = userCredential.user;
-   signIn(email)      
+     signIn(email)      
   })
   .catch((error) => {
     setEmail('')
@@ -107,26 +106,37 @@ const authLoginUser=()=>{
 
    return (
     <View style={{alignContent:'center',justifyContent:'center',marginHorizontal:15,...Sty.www}}>
-    <View style={{marginTop:SIZES.height*0.25}}>
-    <Text style={{fontSize:SIZES.padding,alignSelf:'center',fontWeight:'bold',color:COLORS.black}}>Login</Text>
+ 
+   <View style={{justifyContent:'center',alignContent:'center',alignItems:'center',marginTop:SIZES.height*.10,heigth:100}}>
+      <Image source={logooo}  style={{width:80,height:80,alignSelf:'center'}}/>
+      </View>
+ 
+    <View>
+    <Text style={{fontSize:SIZES.padding,alignSelf:'center',fontWeight:'bold',color:COLORS.black,marginTop:50}}>Login</Text>
     </View>
-   
-   <Formi  value={email} onChangeText={(value)=>{setEmail(value) }} placeholder="Email Address"/>
-   <Formi  value={password} onChangeText={(value)=>{setPassword(value) }} placeholder=" Enter Password " secureTextEntry={true}/>
-    <Button title="Login" style={{padding:10}} color={COLORS.black}
-            onPress={()=>authLoginUser()}  />
+     <View>
+        <TouchableOpacity onPress={()=>navigation.navigate('LoginMobile')}
+        style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:SIZES.padding*2,borderRadius:10,borderWidth:1,borderColor:COLORS.gray,backgroundColor:'blue',padding:SIZES.font}}
+        >
+          <Text style={{fontSize:SIZES.h3,fontWeight:'bold',color:COLORS.white,marginLeft:SIZES.radius}}>
+            Sign In using mobile
+            </Text>
+        </TouchableOpacity>
+      </View>
 
-            <TouchableOpacity style={Sty.loginTO} onPress={()=>navigation.navigate('RegisterUser')} >
-              <Text>Not Register?Register Here</Text></TouchableOpacity>
-   <View>
+       <View>
         <TouchableOpacity onPress={()=>GoogleSignInn()}
-        style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:SIZES.padding*2,borderRadius:10,borderWidth:1,borderColor:COLORS.gray,padding:SIZES.font}}
+        style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:SIZES.padding,borderRadius:10,borderWidth:1,borderColor:COLORS.gray,padding:SIZES.font}}
         >
           <Image source={icons.google} style={{height:30,width:30}}/>
           <Text style={{fontSize:SIZES.h3,fontWeight:'bold',color:COLORS.black,marginLeft:SIZES.radius}}>SignIn with Google</Text>
         </TouchableOpacity>
       </View>
-     
+
+     <Advertisementt
+     containerStyle={{marginTop:100}}
+      />
+      
    </View>
   )}
 

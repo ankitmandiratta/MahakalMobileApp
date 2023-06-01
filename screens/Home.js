@@ -4,17 +4,13 @@ import dummyData from '../constants/dummyData';
 import { COLORS, SIZES,FONTS } from '../constants';
 import Header from '../component/Header';
 import firestore from '@react-native-firebase/firestore';
-import Entypo from 'react-native-vector-icons/Entypo'
 import Styles from '../styles/Styles';
 import { Loader} from '../component';
-import LinearGradient from 'react-native-linear-gradient'
-import {logo, one,logoo}  from '../constants/images'
-import { LoginContext } from '../context/LoginContext';
+import {one}  from '../constants/images'
 import storage from '@react-native-firebase/storage'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
-
-
+import Advertisementt from '../Advertisementt';
+import icons  from '../constants/icons'
 const Drawer = createDrawerNavigator()
 const Home = (props) => {
     const DATA =dummyData.categories
@@ -92,7 +88,7 @@ numColumns={2}
 showsVerticalScrollIndicator={true}
 renderItem={({item,index})=>{
 const mid=item[0].mobileId
-{console.log(index)}
+
 return(
   
 <TouchableOpacity onPress={()=>{navigation.navigate('MobileDetails',{mid:mid})}} 
@@ -140,15 +136,22 @@ ListFooterComponent={
 return (
   load?<Loader />:
 <View style={{backgroundColor:COLORS.white,flex:1,height:SIZES.height*.9}}>
-<StatusBar hidden={true}/>
+<StatusBar hidden={false}/>
 <Header 
 leftComponent={
   <View style={Styles.header_leftComponent_view}>
-<TouchableOpacity onPress={()=>navigation.openDrawer()} >
-<Entypo name="menu" size={30} color={COLORS.black}  />
+<TouchableOpacity onPress={()=>navigation.openDrawer()}>
+<Image source={icons.menu} style={{height:30,width:30,tintColor:'black'}} />
+
 </TouchableOpacity>
     </View>
 } />
+{/* Line Below heading  */}
+<View style={{height:1,width:SIZES.width,marginHorizontal:15, backgroundColor:COLORS.gray,marginTop:15}}/>
+
+<Advertisementt 
+containerStyle={{marginVertical:5}}
+/>
 
 <View style={{flex:1,marginTop:SIZES.radius}}>
 {displayMobiles()}

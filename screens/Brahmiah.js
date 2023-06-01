@@ -10,11 +10,10 @@ import { Alert } from 'react-native';
 import { SET_SELECTED_TAB } from '../store/tabActions';
 import selectedTab from '../store/tabActions';
 import firestore from '@react-native-firebase/firestore';
-import Icon from 'react-native-vector-icons/FontAwesome'
 import Styles from '../styles/Styles';
 import { Loader} from '../component';
 
-import {logo, one,logoo}  from '../constants/images'
+import { one,logoo}  from '../constants/images'
 import { LoginContext } from '../context/LoginContext';
 //import { storage } from '../firebase/firebase';
 import storage from '@react-native-firebase/storage'

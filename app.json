@@ -1,4 +1,8 @@
 {
   "name": "MahakalMobileApp",
-  "displayName": "MahakalMobileApp"
+  "displayName": "MahakalMobileApp",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-6000168815258678~1228632550",
+    "ios_app_id": "ca-app-pub-6000168815258678~1228632550"
+  }
 }

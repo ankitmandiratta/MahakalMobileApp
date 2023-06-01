@@ -1,12 +1,12 @@
 import { Image,SafeAreaView,Text, View,FlatList } from 'react-native'
 import React, { useEffect,useState } from 'react'
-import storage from '@react-native-firebase/storage'
+
 import { COLORS,SIZES } from '../constants'
-import { one,logo,logoo } from '../constants/images'
+import { one,logoo } from '../constants/images'
 const ImageDisplay =  () => {
     
 
-  const [data,setData]= useState([one,logo,logoo])
+  const [data,setData]= useState([one,logoo])
   const [selectedIndex,setSelectedIndex]= useState(0)
   
      

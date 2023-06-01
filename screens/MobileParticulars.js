@@ -1,13 +1,14 @@
+
 import { Text, StatusBar,View,Image,ScrollView, ActivityIndicator,TouchableOpacity,FlatList, ImageBase } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { COLORS,SIZES,FONTS } from '../constants'
 import firestore from '@react-native-firebase/firestore';
-import {connect} from 'react-redux'
 import Styles from '../styles/Styles'
 import  {one } from '../constants/images';
-import Ionicons from 'react-native-vector-icons/Ionicons'
 import storage from '@react-native-firebase/storage'
 import { ProDesc,Loader,Header } from '../component';
+import Advertisementt from '../Advertisementt';
+import icons from '../constants/icons'
 
 const MobileParticulars = ({route,navigation}) => {
 
@@ -119,9 +120,9 @@ return(
      	  <View>
     		<View style={Styles.mp_style2}>
         {/* < Image source={{uri:item}}  style={{width:'100%',height:'100%'}} resizeMode='contain' /> */}
-    <View style={{height:200}}>
-         <Image source={one}  style={{width:'100%',height:'100%'}} resizeMode='contain' />
-      </View>  
+        <View style={{height:200}}>
+        < Image source={{uri:item}}  style={{width:'100%',height:'100%'}} resizeMode='contain' />
+         </View>  
         <View style={{...Styles.mp_style9,marginTop:SIZES.radius}}>
         {imgs.map((item,index)=>{
       return(
@@ -130,9 +131,8 @@ return(
       </View>
       )
       })}
-  </View>
+       </View>
          </View> 
-
            </View>
   
 )}
@@ -142,14 +142,7 @@ ListFooterComponent={
 }
 />
 
-{/* <View style={{...Styles.jai,flexDirection:'row',marginTop:5}}>
-  {imgs.map((i,k)=>{
-    return(
-    <Ionicons key={k} name="ellipse" color={COLORS.red} size={15} />
 
-)  })}
-
-</View> */}
 
 </View>
 {/* Image display ends */}
@@ -169,6 +162,7 @@ ListFooterComponent={
               { phoneColor!= '' &&  <ProDesc title="Mobile Color" value={phoneColor } /> }
               {ram != undefined && ram != '' &&  <ProDesc title="RAM" value={ram } /> }
               {screenSize != undefined && screenSize != '' &&  <ProDesc title="Screen Size" value={screenSize } /> }
+              <Advertisementt  containerStyle={{marginVertical:10}}/>
               {frontCamera != undefined && frontCamera != ''  &&  <ProDesc title="Front Camera" value={frontCamera } /> }
               {mainCamera != undefined && mainCamera != '' &&  <ProDesc title="Main Camera" value={mainCamera } /> }
               {memoryInternal != undefined && memoryInternal != '' && <ProDesc title="Memory " value={memoryInternal  } /> }
@@ -206,13 +200,12 @@ ListFooterComponent={
     return(
            load?<Loader />:
            <View style={{backgroundColor:COLORS.white}}>
-       
-           <StatusBar hidden={true} />
+                  <StatusBar hidden={true} />
            <Header           
            leftComponent={
            <View>
-           <TouchableOpacity onPress={navigation.goBack}>
-           <Ionicons name="arrow-back-circle" color={COLORS.black} size={30} />
+           <TouchableOpacity onPress={navigation.goBack} >
+            <Image source={icons.back} style={{height:20,width:20,tintColor:'black'}}/>        
            </TouchableOpacity>
            </View>
            }   
@@ -222,9 +215,3 @@ ListFooterComponent={
  )}
 
  export default MobileParticulars
-// const mapStateToProps = state =>{
-//    return{
-//        selectedTab:state.selectedTab
-//    }
-// }
-// export default connect (mapStateToProps)(MobileParticulars)

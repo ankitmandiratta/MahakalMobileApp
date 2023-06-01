@@ -1,28 +1,34 @@
-import { StyleSheet, Text, View,FlatList,Image,useColorScheme } from 'react-native'
+import { StyleSheet, Text, View ,FlatList,Image,} from 'react-native'
 import React,{useState,useReducer,useContext,useEffect,useMemo} from 'react'
-import MobileParticulars from './screens/MobileParticulars'
-import dummyData from './constants/dummyData'
-import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import store from './store';
-import { Login, RegisterUser } from './screens/logIn';
+import dummyData from './constants/dummyData'
+import { DrawerNav,MobileParticulars } from './screens';
+import Home from './screens/Home';
+import { Login, RegisterUser,LoginMobile } from './screens/logIn';
 import { LoginContext } from './context/LoginContext';
-import DraweNav from './screens/DrawerNav';
 import ImageDisplay from './screens/ImageDisplay';
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-const Stack = createStackNavigator();
-const App = () => {
 
-  const initialState={
+
+
+
+
+const Stack = createStackNavigator();
+
+const App = () => {
+  const a=1
+   const DATA =dummyData.categories
+   const PHONES = dummyData.phones
+
+   const initialState={
     isLoading:false,
     userName:'',
     userToken:''
   }
-
-  const style= useColorScheme ==='dark'?console.log('black'):console.log('white')
 
   useEffect(()=>{
     setTimeout(async()=>{
@@ -38,8 +44,7 @@ const App = () => {
     },1000)
   },[])
 
-
-loginReducer =(prevState,action)=>{
+  loginReducer =(prevState,action)=>{
 
   switch(action.type){
 
@@ -118,33 +123,45 @@ const authContext =useMemo(()=>({
 
     }),[])
 
-  const DATA =dummyData.categories
-  const PHONES = dummyData.phones
 
-return (
-  <Provider store={store}>
+  return (
+
+<Provider store={store}>
 <LoginContext.Provider value={authContext}>
-{loginState.userToken !=  null ?<>
-<NavigationContainer >
+  {    loginState.userToken !=  null? 
+      <>
+    <NavigationContainer >
    <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName="DrawerNav">
-    <Stack.Screen name="DrawerNav" component={DraweNav} />
-   <Stack.Screen name="Home" component={Home} />
-   <Stack.Screen name="MobileDetails"  component={MobileParticulars} />
+
+
+   <Stack.Screen name="DrawerNav" component={DrawerNav} /> 
+    <Stack.Screen name="Home" component={Home} />
+     <Stack.Screen name="MobileDetails"  component={MobileParticulars} />
 
      </Stack.Navigator>
     </NavigationContainer>
-
-</>:
+</>
+:
 <>
 <NavigationContainer>
-   <Stack.Navigator screenOptions={{headerShown:false}}>
-       <Stack.Screen name="Login" component={Login} />
-     <Stack.Screen name="RegisterUser" component={RegisterUser} />
-     
+   <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Login'>
+     <Stack.Screen name="Login" component={Login} />
+    <Stack.Screen name="LoginMobile" component={LoginMobile} />
+   <Stack.Screen name="RegisterUser" component={RegisterUser} /> 
      </Stack.Navigator>
     </NavigationContainer>
-</>}
- </LoginContext.Provider>
- </Provider>
-)}
+</> }
+</LoginContext.Provider>
+</Provider>
+    )}
+
 export default App
+
+
+
+
+
+
+
+
+

@@ -31,8 +31,6 @@ const RegisterUser = ({navigation}) => {
 
 //added google
 
-const [loggedIn, setloggedIn] = useState(false);
-const [userInfo, setuserInfo] = useState([]);
 
 
 const GoogleSignUpp =async()=>{
@@ -115,9 +113,7 @@ const authCreateGoogleUser=(emaill,passwordd)=>{
         }
             }
          //auth user ends
-        
-
-    return (
+        return (
         <View style={{alignContent:'center',justifyContent:'center',marginHorizontal:15}}>
         <View style={{marginTop:SIZES.height*0.25}}>
         <Text style={{fontSize:SIZES.padding,alignSelf:'center',fontWeight:'bold',color:COLORS.black}}>Register</Text>
@@ -128,7 +124,7 @@ const authCreateGoogleUser=(emaill,passwordd)=>{
         <Button title="Register" style={{padding:10}} color={COLORS.black} 
                 onPress={()=>authCreateUser()}  />
         <TouchableOpacity style={Styles.loginTO} onPress={()=>navigation.navigate('Login')} >
-              <Text>Already Register? LOGIN</Text></TouchableOpacity>
+              <Text style={{color:COLORS.black,fontWeight:'bold'}}>already Registered? LOGIN!!</Text></TouchableOpacity>
       
       
       <View>
@@ -139,12 +135,6 @@ const authCreateGoogleUser=(emaill,passwordd)=>{
           <Text style={{fontSize:SIZES.h3,fontWeight:'bold',color:COLORS.black,marginLeft:SIZES.radius}}>SignUp with Google</Text>
         </TouchableOpacity>
       </View>
-      
-{/* <GoogleSigninButton
-style={{width:SIZES.width,marginHorizontal:SIZES.padding}}
-onPress={()=>SignInWithGoogle()}
-
-/> */}
        </View>
     
   )}

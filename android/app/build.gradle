@@ -28,11 +28,9 @@ project.ext.react = [
   ]
 
 apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
-project.ext.vectoricons = [
-    iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf','FontAwesome.ttf','Ionicons.ttf','Entypo.ttf' ] // Name of the font files you want to copy
-]
+
+
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -144,6 +142,8 @@ android {
             from("$reactAndroidProjectDir/src/main/jni/prebuilt/lib")
             into("$buildDir/react-ndk/exported")
         }
+
+
         afterEvaluate {
             // If you wish to add a custom TurboModule or component locally,
             // you should uncomment this line.
@@ -171,7 +171,7 @@ android {
         abi {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
-            universalApk true  // If true, also generate a universal APK
+            universalApk false  // If true, also generate a universal APK
             include (*reactNativeArchitectures())
         }
     }
@@ -182,6 +182,15 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+         release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+
     }
     buildTypes {
         debug {
@@ -190,13 +199,10 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.release
-
-            minifyEnabled enableProguardInReleaseBuilds
-
+           signingConfig signingConfigs.release         
+           minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        
-        
+           
         }
     }
 
@@ -223,7 +229,6 @@ dependencies {
     //noinspection GradleDynamicVersion
 
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation project(':react-native-vector-icons')
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation platform('com.google.firebase:firebase-bom:30.4.1')
@@ -285,3 +290,4 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+tasks.register("prepareKotlinBuildScriptModel"){}

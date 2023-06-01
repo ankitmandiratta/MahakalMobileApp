@@ -6,8 +6,10 @@ module.exports = {
         inlineRequires: true,
       },
     }),
+
   },
   resolver: {
     sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'json','md','cjx'] //add here
   },
+
 };
